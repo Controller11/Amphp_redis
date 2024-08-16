@@ -1,0 +1,20 @@
+services:
+    php:
+        build: .
+        cpus: "1"   # using 1 CPU core in php container
+        networks:
+            - backend
+        depends_on:
+            - redis
+        command: bash -c "php -S 0.0.0.0:9000 -t /app"  # starting PHP service after installing and running Composer
+        
+                    
+    redis:
+        image: redis:latest
+        networks:
+            - backend
+        ports:
+            - 6379:6379
+networks:
+    backend:
+        name: redis_net
