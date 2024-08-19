@@ -1,0 +1,6 @@
+{
+    "require": {
+        "amphp/amp": "^2",
+        "amphp/redis": "^1"
+    }
+}
